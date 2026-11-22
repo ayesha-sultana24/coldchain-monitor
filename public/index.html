@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ColdChain Monitor</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M16 6v20M7.3 11l17.4 10M7.3 21l17.4-10' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <section id="login" class="login" hidden>
+    <form class="login-card" data-form="login" autocomplete="on">
+      <div class="brand big"><span class="logo"></span> ColdChain Monitor</div>
+      <p class="muted">Real-time temperature monitoring for vaccines, blood and medicines.</p>
+      <label>Username <input name="username" value="admin" autocomplete="username" required></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+      <div class="errs" id="login-err"></div>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p class="hint">Demo accounts: <b>admin</b> (full access) and <b>viewer</b> (read-only). Passwords are in the README.</p>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+    <header class="top">
+      <div class="brand"><span class="logo"></span> ColdChain Monitor</div>
+      <nav id="nav">
+        <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a href="#/devices" data-route="devices">Devices</a>
+        <a href="#/alerts" data-route="alerts">Alerts <span id="alert-badge" class="badge" hidden></span></a>
+        <a href="#/analytics" data-route="analytics">Analytics</a>
+        <a href="#/sites" data-route="sites">Sites</a>
+      </nav>
+      <div class="who">
+        <span id="live" class="live" title="Live connection"><i></i><span>Live</span></span>
+        <span id="user" class="user"></span>
+        <button class="btn ghost sm" data-action="logout">Sign out</button>
+      </div>
+    </header>
+    <main id="view" class="view"></main>
+  </div>
+
+  <div id="modal" class="backdrop" hidden><div class="modal" role="dialog" aria-modal="true"></div></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
